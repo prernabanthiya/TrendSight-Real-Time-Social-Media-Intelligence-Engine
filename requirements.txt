@@ -1,0 +1,255 @@
+Chapter 1
+Introduction
+1.1 Background and Context
+
+The rising demand for energy on a global scale, the urgent need to reduce carbon emissions and the optimisation of resource use has created a lot of pressure on modern energy systems. Buildings alone consume a significant portion of the electricity used for heating, cooling, ventilation, lighting and running appliances. Consequently, the capacity for accurately predicting energy demand and energy supply has become a basic necessity for sustainable infrastructure planning and effective energy management.
+
+Energy consumption in buildings is affected by a multitude of interacting variables, such as environmental factors, behaviour of people in the building, operation time and time-dependent behaviour. Traditional forecasting methods such as linear statistical models and classical time series techniques have problems capturing these complex relationships. As a result, machine learning has become a powerful alternative that can learn the nonlinear dependencies directly from the data (Mohsen et al. [2023]; Wu et al. [2024]).
+
+Studies have shown that machine learning models greatly enhance the prediction accuracy when environmental and behavioural factors are combined into the forecasting scheme (Rambabu et al. [2022]). Features such as temperature, humidity, occupancy and time-of-day have been identified as critical determinants of building energy consumption patterns (Assadian and Assadian [2023]). These are the same categories of features that are utilised in the present project so that there is a strong coherence between academic theory and practical implementation.
+
+Recent research has also confirmed that predictive accuracy is highly determined by feature selection and dataset constructing and not only by algorithm complexity (Airlangga [2024a]; Kumar et al. [2023]). This observation is a great reason to pay attention not only to the model selection but also data exploration and preprocessing strategies in this study.
+
+1.2 Motivation for the Study
+
+Despite a great deal of research on machine learning-based energy forecasting, there is still a large gap between the development of the theoretical models and the implementation of coding them in practice. Many studies deal mostly with algorithm comparison and do not sufficiently discuss how real datasets behave at the exploratory data analysis, preprocessing, and feature transformation stages. In real-world systems, these steps frequently make the difference between the success and failure of predictive models.
+
+Airlangga proved that Linear Regression is able to perform competitively and even exceed the performance of sophisticated ensemble methods when the data has a structured trend (Airlangga [2024a]). Similarly, Mohsen et al. concluded that the superiority of XGBoost and Random Forest is very dependent on the scale and complexity of the dataset (Mohsen et al. [2023]). These findings drive the necessity of the practical verification through the direct implementation of models.
+
+Furthermore, the adoption of machine learning in smart buildings entails solutions that are not only accurate but also interpretable and computationally efficient. Complex hybrid models may not provide significant improvements in accuracy and introduce significant computational cost and a lack of transparency (Hassan and Al-Salim [2022]). This study is therefore inspired by the need to test whether simpler models can offer reliable forecasting performance in a real coding environment.
+
+1.3 Problem Statement
+
+Energy consumption forecasting is the process of predicting the future energy consumption by using past energy consumption patterns and factors. However, a high prediction accuracy is still difficult to achieve, as the energy consumption is dynamic, the occupancy behaviour varies, and the energy consumption depends on the environmental conditions.
+
+Key challenges include:
+
+Non-linear correlations between features
+
+Temporal variation of consumption
+
+Sensitivity to preprocessing techniques
+
+Performance of model dependent on dataset
+
+It has been suggested that there is no one-size-fits-all machine learning model (Wu et al. [2024]). Performance is often conditional on the structure of the dataset, feature engineering and parameter configuration (Chen and Li [2023]).
+
+The central problem to be addressed in this study is thus:
+
+Which machine learning model offers the best and most practical solution for predicting the energy use of buildings based on structured information on the environmental and operational aspects of the buildings?
+
+This research solves the problem by implementing and comparing the problem using Linear Regression, Random Forest and XGBoost models and a unified experimental framework.
+
+1.4 Aim of the Study
+
+The main goal of this research is to implement and test a machine learning based energy forecasting system with the ability to forecast the energy demand inside buildings based on the environmental, operational, and temporal features extracted from structured historical data.
+
+The purpose of the study is to validate the theoretical finding from the available literature through practical experimentation in a real coding environment which is not only accuracy, but also interpretability and operational suitability (Rambabu et al. [2022]; Airlangga [2024b]).
+
+1.5 Research Objectives
+
+The objectives of this study are to:
+
+Perform Exploratory Data Analysis (EDA): To gain insight into data distribution and relationships between features.
+
+Analyse correlations between energy consumption and variables such as temperature, humidity, occupancy and operational usage.
+
+Engineeristic predictive features such as time-based index, rolling trends
+
+Implement Linear Regression, Random Forest and XGBoost Models.
+
+Evaluate the model performance using MAE, RMSE and R2 metrics.
+
+Interpret experimental results in relation to existing findings of research.
+
+Determine the best model for practical energy forecasting applications;
+
+These objectives are in line with findings showing that model effectiveness is conditioned on structured feature selection and deployment strategy in context (Kumar et al. [2023]; Park et al. [2024]).
+
+1.6 Significance of the Study
+
+This study adds to the field of intelligent energy systems by offering a practical, reproducible machine learning pipeline connecting the theory with the practice. It shows how data preprocessing, feature engineering and EDA play a more important role in predictive performance compared to model complexity alone.
+
+The research also provides some practical advice for energy managers and smart building designers in terms of computationally efficient and interpretable forecasting models that can be deployed in operational environments (Rambabu et al. [2022]).
+
+By showing that simpler models can be better than advanced ensemble methods under certain data circumstances, the study is supportive of the importance of making informed model choice based on data characteristics (Airlangga [2024a]; Mohsen et al. [2023]).
+
+1.7 Scope and Limitations
+
+This research is concentrating on offline energy demand forecast using structured historical data. The process of implementation involves EDA, preprocessing, feature engineering, model training, and performance evaluation. However, it lacks real-time IoT sensor integration and also deep learning architectures such as LSTM, which may further enhance prediction accuracy for highly dynamic systems [Hassan and Al-Salim [2022]).
+
+These limitations set the scope of the study and at the same time provide pathways for future research development.
+
+1.8 Organisation of the Report
+
+The structure of the report is as follows. Chapter 2 is a comprehensive review of the literature about machine learning methods in energy forecasting. Dataset exploration and feature engineering is discussed in Chapter 3. Chapter 4 describes the modelling methodology and training pipeline. Experimental results and evaluation are presented in Chapter 5. Chapter 6 provides critical discussion of outcomes and Chapter 7 concludes with future research directions.
+
+Chapter 2
+Literature Review
+PART 1 - Machine Learning Basics and General Methods for Energy Forecasting
+2.1 Move from Traditional Forecasting to Machine Learning
+
+Energy forecasting has been traditionally based on deterministic and statistical methods such as moving averages, autoregressive models, and time series methods based on linear regression. While these approaches worked under relatively stable environments, their predictive capabilities decreased greatly as systems of energy became more dynamic and data-rich. The introduction of smart meters, IoT sensors and building automation systems together with the fastness with which these were integrated in buildings, introduced datasets with high dimensionality and nonlinear relationships, requiring more adaptive modelling techniques.
+
+Machine learning became a powerful alternative that could record complicated relations between multiple variables. Studies have shown that machine learning models are more accurate than traditional models in predicting building energy consumption, especially when environmental and behavioural features are combined (Mohsen et al. [2023]). The fact that these models can learn from previous patterns makes them very appropriate for smart grid and building energy management systems (Wu et al. [2024]).
+
+The relevance of these findings to the present study is high. The used dataset in this project has environmental, operational, and temporal attributes, similar to the multidimensional real-world datasets in current research. This validates the use of machine learning as the main modelling paradigm.
+
+Role of Environmental and Behavioural Features 2.2
+
+A common theme throughout energy forecasting literature is the importance of environmental and behavioural variables. Features like temperature and humidity have a significant impact on the behaviour of the HVAC system while occupancy patterns impact lighting and appliance use. Research confirms that combining these variables enhances the accuracy of the model, as well as reduces errors in predicting the results (Rambabu et al. [2022]).
+
+Assadian and Assadian emphasized that energy consumption in appliances is highly dependent on occupancy behaviour and operational timetables, and the predictive systems gain much benefit from inclusion of these features in the model (Assadian and Assadian [2023]). Similarly, Wu et al. stressed that the environmental conditions are considered as primary drivers of short-term energy consumption variation both in residential and commercial buildings (Wu et al. [2024]).
+
+The present study reflects these recommendations, in that temperature, humidity, occupancy, HVV usage, lighting usage, and renewable energy contribution are included as predictive variables. By matching the design of the datasets to known research practice, the study ensures that the modelling approach taken is both theoretically robust and relevant.
+
+2.3 Linear Regression As A Base Line Model
+
+Linear Regression continues to be an important part of the study of energy forecasting because of its simplicity, interpretability and reliability. It is despite its assumptions of linear relationships between variables, and it is such a good baseline model that more complex algorithms are compared against it.
+
+Airlangga showed that Linear Regression can be used to obtain competitive accuracy when energy consumption patterns have structured behaviour and consistent trends (Airlangga [2024a]). Mohsen et al. also found that Linear Regression has been reliable in situations where datasets are of a moderate size and aren't too nonlinear (Mohsen et al. [2023]).
+
+These findings highly support the inclusion of Linear Regression in this study as a benchmark model. Its role is not only comparative but also functional, thus enabling to assess whether advanced ensemble models really provide some meaningful improvement over simpler approaches.
+
+2.4 Ensemble Learning and Nonlinear Modelling
+
+Ensemble learning methods like Random Forest and gradient boosting methods have become very popular because of their capability to model non-linear interactions and their reduced prediction variance. Random Forest is a collection of decision trees to generate a more stable prediction while increasing algorithms are the ones that improve performance by correcting past errors.
+
+Research has shown that ensemble models tend to perform better than single estimators in cases where datasets exhibit high complexity and nonlinear relationships (Mohsen et al. [2023]). Wu et al. further found that the ensemble-based models exhibit a high level of resilience to noise and feature correlation, which makes them robust for heterogeneous building environments (Wu et al. [2024]).
+
+However, Airlangga mentioned that ensemble models are not always better and can be worse when the relationships in the given data are still quite linear or when the amount of data is limited (Airlangga [2024b]). This is one more reason why it's important to use data to choose models instead of just looking at the algorithm's complexity.
+
+The current project is an experimental validation of this statement by comparing Linear Regression, Random Forest and XGBoost under the same conditions and thus being able to make an objective evaluation of the effectiveness of an ensemble.
+
+2.5 Feature Engineering and Modelling Temporal Dependencies
+
+Feature engineering is always pinpointed as a key success factor for energy forecasting models. Constructing meaningful features from raw data helps models to better understand intrinsic patterns and temporal behaviour.
+
+Chen and Li showed that time based features like hour, day and month contribute to the model stability and accuracy a lot (Chen and Li [2023]). Similarly, Kumar et al. found that the use of rolling statistical indicators improves the ability of models to capture short-term trends in consumption (Kumar et al. [2023]).
+
+Assadian and Assadian further emphasised that feature optimisation often "has more impact than changing the modelling algorithm itself" [Assadian and Assadian (2023).] These results provide support for the inclusion of temporal features obtained from timestamps and rolling averages in the current study, which improves the model's capacity to observe cyclical features.
+
+2.6 Household and Buildings Energy Forecasting Studies
+
+Rambabu et al. investigated energy forecasting for households based on machine learning algorithms and showed that properly structured data and efficient models go hand in hand to make energy management performance far better (Rambabu et al. [2022]). Their study proved that using machine learning helps to better schedule energy and support the decision-making process in domestic environments.
+
+Similarly, Airlangga's work strengthened the need for models that offer a balance between performance and computational cost, especially for deployment in real-world settings such as residential applications (Airlangga [2024a]). These findings support the present project's objective of evaluating models in a practical coding environment, rather than prioritising theoretical complexity.
+
+2.7 Significance of Dataset Structure and Quality
+
+Throughout the literature, the quality of the data set is consistently found to be a major factor in model performance. Wu et al. observed that the predictive accuracy is significantly different for various building types because of the differences in the consistency and feature relationship (Wu et al. [2024]). Kumar et al. also emphasized that the structure of a given dataset influences the effectiveness of machine learning models more than the choice of the algorithm themselves (Kumar et al. [2023]).
+
+This is another reason to put a high emphasis on data preprocessing, exploratory analysis, and feature engineering as key components of the forecasting framework in this study.
+
+2.8 Feature Selection and Optimisation Strategies
+
+Feature selection is a key component in enhancing the efficiency and effectiveness of machine learning models used for energy consumption forecasting. While the addition of environmental and behavioural variables enhances the accuracy of the model, the presence of redundant or weakly correlated variables may reduce the model performance.
+
+Research focusing on systematic feature selection methods has shown that the model precision is improved when the features are chosen based on statistical relevance, correlation strength and predictive contribution (Zhang et al. [2022]). Techniques like correlation filtering, recursive feature elimination and regularisation based selection have been used to reduce noise and improve the generalisation capability.
+
+Assadian and Assadian introduced that the ideal feature matrices are a crucial strategy to enhance the accuracy and stability of forecasts, particularly when working with appliance-level energy data (Assadian and Assadian [2023]). This finding gives support to the methodology of this study in which feature relevance was explored at the Exploratory Data Analysis (EDA) stage prior to training the models.
+
+In the course of the current project it was found that the incorporation of time-based features like hour and day derived from the data had a more informative representation of usage behaviour in the model, which improved stability of predictions and reduced temporal inconsistencies.
+
+2.9 Effects of Temporal Patterns to Energy Forecasting
+
+Energy consumption is very time-dependent with daily, weekly and seasonal cycles. Research has repeatedly shown that temporal features can be added to machine learning models to improve predictive performance.
+
+Chen and Li emphasized the importance of models with a time index of hourly and daily time, which perform much better than models with environmental variables only (Chen and Li [2023]). Similarly, Wu et al. emphasised the differences in time-based energy patterns between different building types which strengthens the need for temporal decomposition (Wu et al. [2024]).
+
+This correlates very well with the current study in which temporal characteristics of the data were extracted from timestamps and incorporated into the dataset. These improvements allowed models to better represent peak usage hours and off-peak trends, which makes forecasts more reliable.
+
+2.10 Hybrid Forecasting and Ensemble Forecasting Techniques
+
+Hybrid modelling approaches combine many different algorithms in order to enhance the predictive capability. These models are an attempt to make use of the strengths of the individual algorithms and weaknesses.
+
+Airlangga explored hybrid and ensemble methods, and found that while hybrid models led to slight increases in accuracy, their added computational overhead and complexity were often beyond the practical benefit of the technique (Airlangga [2024b]). Hassan and Al-Salim also noted that hybrid deep learning approaches improved predictions but decreased interpretability and added complexity to deployment (Hassan and Al-Salim [2022]).
+
+These findings validate the methodological choice in this study to avoid over-complicated hybrid systems and instead emphasise efficiency, interpretability and scalability. The choice of Linear Regression, Random Forest and XGBoost is a good trade-off between complexity and performance.
+
+2.11 Comparative Performance of Different Building Types
+
+Wu et al. performed a multi-building type analysis and found that the accuracy of the predictive model differs greatly between residential, commercial and industrial environments (Wu et al. [2024]). The study highlighted how residential datasets tend to have more predictable patterns than commercial buildings which tend to be more variable because of different operational conditions.
+
+Similarly, Rambabu et al. noted that household energy data is likely to exhibit a higher linearity exhibiting stable performance of Linear Regression in a residential setting (Rambabu et al. [2022]). This observation is in line with the dataset used in the present project, which shows structured patterns more characteristic of residential or semi-commercial consumption.
+
+As a result, it may be that the superior performance of the Linear Regression within this project can be attributed to the linear nature of relationships within the dataset.
+
+2.12 Algorithm Sensitivity to Datasets Size & Complexity
+
+Several studies reach the conclusion that the improvement in performance of ensemble algorithms is only noticed when large scale datasets with high dimensions are involved.
+
+Mohsen et al. found that Random Forest and XGBoost become better than simpler models mainly when provided with sufficiently large and complex inputs of data (Mohsen et al. [2023]). Kumar et al. confirmed that ensemble models need to be carefully balanced to prevent overfitting in datasets of medium size (Kumar et al. [2023]).
+
+The dataset used in this project, although structured and rich in features, was not highly nonlinear, which is why other simpler methods of regression had higher performance.
+
+2.13 Inclusion of Machine Learning in Smart Energy Systems
+
+The use of machine learning for energy forecasting is not limited to mere prediction but can also be used for decision-making support systems. Predictive insights allow energy scheduling to be automated, demand response optimisation and real-time load balancing.
+
+Rambabu et al found that the machine learning based forecasting helps in improving energy management by enabling proactive control strategies and optimisation of consumption (Rambabu et al. [2022]). Park et al. also discussed the role of predictive analytics in reducing operational energy cost by proactive planning (Park et al. [2024]).
+
+The current study is a contribution to this field, which provides a framework that could be integrated into smart building management systems allowing for predictive optimisation instead of reactive handling of consumption.
+
+2.14 Identified Research Gaps
+
+Although there already exists extensive research on energy forecasting with the help of machine learning, there are several gaps:
+
+Over-emphasis on algorithm complexity vs. reproducibility
+
+Limited discussion on real world code implementation steps
+
+Too little attention paid to model interpretability
+
+Absence of dataset-based decision frameworks
+
+Most studies focus on better measures of accuracy with insufficient attention to how practitioners can reproduce and deploy these models effectively.
+
+This project fills these gaps by:
+
+Documenting the whole machine learning pipeline
+
+Emphasising on EDA and preprocessing
+
+Model behaviour as demonstrated empirically
+
+Providing code-driven insights as opposed to purely theoretical claims
+
+2.15 Synthesis & Conceptual Framework
+
+The literature reviewed establish that energy forecasting using machine learning is highlydependent on:
+
+Feature design
+
+Dataset structure
+
+Temporal modelling
+
+Algorithm suitability
+
+The present study brings these insights together in a unified framework by combining:
+
+Structured feature engineering
+
+Coding implementation in Practice
+
+Model comparison pipeline
+
+Performance evaluation based on standard metrics
+
+This framework helps to ensure that there is both academic rigour and practical relevance.
+
+Chapter 2 Summary
+
+This literature review has thoroughly discussed the approaches of machine learning for energy forecasting and the importance of feature engineering, algorithm selection suitability, data set characteristics and temporal modelling. While ensemble and boosting approaches provide improved predictive powers, their usefulness is still subject to the structure of the datasets and their computational viability.
+
+The current research extends these insights by deploying and assessing three machine learning models in a practical, code-based environment, and by contributing to the field by equally incorporating theory and application.
+
+requests
+pymongo
+pandas
+textblob
+nltk
+spacy
+langdetect
+python-dateutil
