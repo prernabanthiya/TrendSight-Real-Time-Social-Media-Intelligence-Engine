@@ -1,5 +1,8 @@
 # TrendSight-Real-Time-Social-Media-Intelligence-Engine
 
+# Live Dashboard Preview
+![dashboard](https://github.com/prernabanthiya/TrendSight-Real-Time-Social-Media-Intelligence-Engine/blob/main/Screenshot%202025-11-29%20002238.png)
+This dashboard updates automatically as new tweets are ingested and processed, displaying real-time trends, sentiment, and topic engagement.
 ## Overview
 
 This project demonstrates a complete, production-style data engineering workflow that converts live Twitter data into meaningful, real-time business insights. It showcases the ability to design, build, and operate an end-to-end pipeline that handles data ingestion, processing, enrichment, and visualization using modern tools and best practices.
